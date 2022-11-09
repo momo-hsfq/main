@@ -1,4 +1,4 @@
-# edumanage
+# Frontend
 
 ## Project setup
 ```
