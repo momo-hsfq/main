@@ -1,7 +1,9 @@
 <template>
   <div id="loginUser" class="login_div">
     <span class="login_span">用户登录</span>
+
     <el-divider></el-divider>
+
     <el-form :model="loginForm" :rules="rules" ref="loginForm">
       <el-form-item prop="user">
         <el-input v-model="loginForm.user" placeholder="用户名"></el-input>
@@ -50,11 +52,29 @@
         >
       </el-form-item>
     </el-form>
-    <el-link type="primary" style="cursor: pointer" @click="toForgot"
-      >忘记密码?</el-link
-    >
+    <!-- 并列 -->
+  <div class="setting-wrapper">
+    <el-link type="primary" style="cursor: pointer" @click="toForgot" class="fogotCow"
+      >忘记密码?</el-link>
+    <el-link type="primary" style="cursor: pointer" @click="toRegister" class="registerCow">用户注册</el-link>
+  </div>
   </div>
 </template>
+
+<!-- 页面 -->
+<style scoped>
+.setting-wrapper{
+  display: flex;
+  flex-direction: row;
+}
+.forgotCow{
+  margin: 0 150px 0 10px;
+}
+.registerCow{
+  margin: 0 10px 0 120px;
+}
+</style>
+
 
 <script>
 import { setCookie } from '../global/cookie';
@@ -81,6 +101,7 @@ export default {
         user: '',
         pass: '',
         vcode: '',
+        photo: '',
       },
       rules: {
         user: [{ validator: validateUser, trigger: 'blur' }],
@@ -88,6 +109,7 @@ export default {
       },
     };
   },
+
   methods: {
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
@@ -143,6 +165,14 @@ export default {
           from: 'user',
         },
       });
+    },
+    toRegister() {
+      this.$router.push({
+        name: 'register',
+        query:{
+          from:'user',
+        }
+      })
     },
   },
 };

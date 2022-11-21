@@ -8,9 +8,11 @@
     </el-table-column>
     <el-table-column  prop="crsname" label="课程名称" width="200">
     </el-table-column>
+    <!-- 设置课程起始时间 -->
     <el-table-column prop="time" label="上课时间" width="150">
     </el-table-column>
     <el-table-column prop="port" label="上课地点" width="200">
+    
     </el-table-column>
     <el-table-column prop="info" label="详情" width="400">
     </el-table-column>
@@ -22,7 +24,8 @@
   </el-table>
 </div>
 </template>
-<script>
+
+<script >
 export default {
   data(){
     return{

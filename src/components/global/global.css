@@ -31,7 +31,7 @@ body .el-table th.gutter{
 .el-menu-collapse .el-menu .el-submenu, .el-menu--popup {/*个人信息menu width */
     min-width: 260px;
 }
-.absolute_center,.login_div,.forgot_div{
+.absolute_center,.login_div,.forgot_div,.register_div{
     position: absolute;
     left: 50%;
     top: 50%;
@@ -73,7 +73,7 @@ body .el-table th.gutter{
     border: 1px;
     border-radius: 2px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
-    height: 350px;
+    height: 400px;
     width: 250px;
     padding: 30px;
     text-align: center;

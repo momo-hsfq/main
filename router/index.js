@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Login from '@/components/login/LoginUser'
 import Forgot from '@/components/login/Forgot'
+import Register from '@/components/login/Register'
+import password_strength from '@/components/login/password_strength'
 import LoginAdmin from '@/components/login/LoginAdmin'
 import Student from '@/components/student/Student'
 import Header from '@/components/common/Header'
@@ -62,6 +64,15 @@ export default new Router({
           name:'forgot',
           component:Forgot
         },
+        {path:'/register',
+         name:'register',
+         component:Register
+        },
+        {path:'/password_strength',
+         name:'password_strength',
+         component:password_strength
+        },
+        
         {
           path: '/Student',
           component: Student,

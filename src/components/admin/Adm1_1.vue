@@ -57,6 +57,7 @@
     </el-table-column>
     <el-table-column prop="birth" label="出生日期" width="110">
     </el-table-column>
+    
     <el-table-column prop="political" label="政治面貌" width="120">
     </el-table-column>
     <el-table-column prop="graduate" label="毕业学校" width="200">
