@@ -27,8 +27,8 @@
         <el-col :span="12">
           <img
             id="code_img"
-            src="http://localhost:3000/auth/login/yzm"
-            @click="changeCode()"
+            :src="captchaUrl"
+            @click="getCaptcha()"
             style="
               height: 40px;
               width: 100px;
@@ -50,12 +50,33 @@
         >
       </el-form-item>
     </el-form>
-    <el-link type="primary" style="cursor: pointer" @click="toForgot"
-      >忘记密码?</el-link
-    >
+    <div class="setting-wrapper">
+      <el-link
+        type="primary"
+        style="cursor: pointer"
+        @click="toForgot"
+        class="forgotPassword-link"
+        >忘记密码?</el-link
+      >
+      <el-link type="primary" style="cursor: pointer" @click="toRegister"
+        >去注册</el-link
+      >
+    </div>
   </div>
 </template>
 
+<style scoped>
+.setting-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.forgotPassword-link {
+  margin: 0 140px 0 0;
+}
+.login_span {
+  font-family: 'Microsoft Yahei';
+}
+</style>
 <script>
 import { setCookie } from '../global/cookie';
 import qs from 'qs';
@@ -86,13 +107,19 @@ export default {
         user: [{ validator: validateUser, trigger: 'blur' }],
         pass: [{ validator: validatePass, trigger: 'blur' }],
       },
+      captchaUrl: 'http://localhost:3000/auth/login/yzm',
     };
   },
   methods: {
+    getCaptcha() {
+      let defaultUrl = 'http://localhost:3000/auth/login/yzm';
+      // 每次指定的src要不一样，img才会重新请求，可以使用Date.now()小技巧
+      this.captchaUrl = `${defaultUrl}?timer=${new Date().getTime()}`;
+    },
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          //提交表单
+          // 提交表单
           this.$axios
             .post('auth/login/user', {
               name: this.loginForm.user,
@@ -117,6 +144,7 @@ export default {
                 // 跳转到teacher组件中
                 this.$router.replace({ path: '/Tea1_1' });
               } else {
+                this.getCaptcha();
                 alert(result.data.msg);
                 return false;
               }
@@ -130,18 +158,17 @@ export default {
         }
       });
     },
-    changeCode() {
-      setTimeout(() => {
-        document.getElementById('code_img').src =
-          'http://localhost:8080/auth/login/yzm';
-      }, 1000);
-    },
     toForgot() {
       this.$router.push({
         name: 'forgot',
         query: {
           from: 'user',
         },
+      });
+    },
+    toRegister() {
+      this.$router.push({
+        name: '',
       });
     },
   },

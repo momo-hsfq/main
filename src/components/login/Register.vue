@@ -1,6 +1,6 @@
 <template>
   <div id="forgot" class="forgot_div">
-    <span class="login_span">忘记密码</span>
+    <span class="login_span">注册</span>
     <el-divider></el-divider>
     <el-form :model="userForm" :rules="rules" ref="userForm" label-width="70px">
       <el-form-item prop="user" label="用户名">
@@ -10,27 +10,6 @@
       <el-form-item prop="tel" label="手机号">
         <el-input v-model="userForm.tel"> </el-input>
       </el-form-item>
-
-      <!-- <el-form-item>
-        <el-col :span="10">
-          <el-input
-            v-model="userForm.vcode"
-            maxlength="6"
-            placeholder="验证码"
-            style="width: 125px"
-          ></el-input>
-        </el-col>
-        <el-col :span="12">
-          <el-button
-            type="primary"
-            round
-            style="margin-left: 10px; width: 145px"
-            @click="getCode"
-            :disabled="getCodeBtnDisable"
-            >{{ codeBtnWord }}</el-button
-          >
-        </el-col>
-      </el-form-item> -->
 
       <el-form-item label="新密码" prop="pass">
         <el-input
