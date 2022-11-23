@@ -11,9 +11,9 @@
         >
           <el-option
             v-for="item in deptOptions"
-            :key="item.id"
-            :label="item.name"
-            :value="item.id"
+            :key="item.departmentNo"
+            :label="item.department"
+            :value="item.departmentNo"
           >
           </el-option>
         </el-select>
@@ -76,26 +76,32 @@
       >
         <el-table-column type="index" label="序号" width="59">
         </el-table-column>
-        <el-table-column prop="id" label="学号" width="110"> </el-table-column>
+        <el-table-column prop="studentNo" label="学号" width="110">
+        </el-table-column>
         <el-table-column prop="name" label="姓名" width="150">
         </el-table-column>
         <el-table-column prop="status" label="状态" width="60">
         </el-table-column>
-        <el-table-column prop="sex" label="性别" width="50"> </el-table-column>
-        <el-table-column prop="classAndGrade" label="班级" width="100">
+        <el-table-column prop="gender" label="性别" width="50">
+        </el-table-column>
+        <el-table-column prop="class" label="班级" width="100">
         </el-table-column>
         <el-table-column prop="department" label="学院" width="180">
         </el-table-column>
-        <el-table-column prop="idCard" label="身份证号" width="200">
+        <el-table-column prop="identityNum" label="身份证号" width="200">
         </el-table-column>
-        <el-table-column prop="birth" label="出生日期" width="110">
+        <el-table-column prop="birthDate" label="出生日期" width="110">
         </el-table-column>
 
-        <el-table-column prop="political" label="政治面貌" width="120">
+        <el-table-column
+          prop="politicalAppearance"
+          label="政治面貌"
+          width="120"
+        >
         </el-table-column>
-        <el-table-column prop="graduate" label="毕业学校" width="200">
+        <el-table-column prop="graduateSchool" label="毕业学校" width="200">
         </el-table-column>
-        <el-table-column prop="telephone" label="电话号码" width="120">
+        <el-table-column prop="phoneNum" label="电话号码" width="120">
         </el-table-column>
         <el-table-column fixed="right" prop="operate" label="操作" width="150">
           <template slot-scope="scope">
@@ -139,10 +145,10 @@
           <el-col :span="10">
             <el-form-item label="学号" :label-width="formLabelWidth">
               <el-input
-                v-model="form.id"
+                v-model="form.studentNo"
                 autocomplete="off"
                 :disabled="isDisabled"
-                maxlength="10"
+                maxlength="12"
                 show-word-limit
               ></el-input>
             </el-form-item>
@@ -156,7 +162,7 @@
         <el-form-item>
           <el-col :span="10">
             <el-form-item label="性别" :label-width="formLabelWidth">
-              <el-select v-model="form.sex" placeholder="请选择">
+              <el-select v-model="form.gender" placeholder="请选择">
                 <el-option label="男" value="男"></el-option>
                 <el-option label="女" value="女"></el-option>
               </el-select>
@@ -164,7 +170,10 @@
           </el-col>
           <el-col :span="14">
             <el-form-item label="毕业院校" :label-width="formLabelWidth">
-              <el-input v-model="form.graduate" autocomplete="off"></el-input>
+              <el-input
+                v-model="form.graduateSchool"
+                autocomplete="off"
+              ></el-input>
             </el-form-item>
           </el-col>
         </el-form-item>
@@ -172,24 +181,31 @@
           <el-col :span="10">
             <el-form-item label="出生日期" :label-width="formLabelWidth">
               <el-date-picker
-                v-model="form.birth"
+                v-model="form.birthDate"
                 type="date"
                 placeholder="选择日期"
                 value-format="yyyy-MM-dd"
+                style="width: 200px"
               >
               </el-date-picker>
             </el-form-item>
           </el-col>
           <el-col :span="14">
             <el-form-item label="身份证号" :label-width="formLabelWidth">
-              <el-input v-model="form.idCard" autocomplete="off"></el-input>
+              <el-input
+                v-model="form.identityNum"
+                autocomplete="off"
+              ></el-input>
             </el-form-item>
           </el-col>
         </el-form-item>
         <el-form-item>
           <el-col :span="10">
             <el-form-item label="政治面貌" :label-width="formLabelWidth">
-              <el-select v-model="form.political" placeholder="请选择">
+              <el-select
+                v-model="form.politicalAppearence"
+                placeholder="请选择"
+              >
                 <el-option value="群众"></el-option>
                 <el-option value="共青团员"></el-option>
                 <el-option value="入党积极分子"></el-option>
@@ -200,7 +216,7 @@
           </el-col>
           <el-col :span="14">
             <el-form-item label="电话号码" :label-width="formLabelWidth">
-              <el-input v-model="form.telephone" autocomplete="off"></el-input>
+              <el-input v-model="form.phoneNum" autocomplete="off"></el-input>
             </el-form-item>
           </el-col>
         </el-form-item>
@@ -210,9 +226,9 @@
               <el-select v-model="form.department" placeholder="请选择">
                 <el-option
                   v-for="item in deptOptions"
-                  :key="item.id"
-                  :label="item.name"
-                  :value="item.id"
+                  :key="item.departmentNo"
+                  :label="item.department"
+                  :value="item.departmentNo"
                 >
                 </el-option>
               </el-select>
@@ -220,12 +236,12 @@
           </el-col>
           <el-col :span="8">
             <el-form-item label="班级" :label-width="formLabelWidth">
-              <el-select v-model="form.classAndGrade" placeholder="请选择">
+              <el-select v-model="form.class" placeholder="请选择">
                 <el-option
                   v-for="item in classOptions"
-                  :key="item.classId"
-                  :label="item.classId"
-                  :value="item.classId"
+                  :key="item.classNo"
+                  :label="item.classNo"
+                  :value="item.classNo"
                 >
                 </el-option>
               </el-select>
@@ -303,7 +319,20 @@ export default {
       deptOptions: [],
       deptSelected: '',
       gradeSelected: '',
-      classOptions: '',
+      classOptions: [
+        {
+          classNo: 1,
+        },
+        {
+          classNo: 2,
+        },
+        {
+          classNo: 3,
+        },
+        {
+          classNo: 4,
+        },
+      ],
       search: '',
 
       tableData: [], //目前前端所拥有的所有课程信息
@@ -314,16 +343,16 @@ export default {
 
       dialogFormVisible: false,
       form: {
-        id: '',
+        studentNo: '',
         name: '',
-        sex: '',
-        graduate: '',
-        birth: '',
-        idCard: '',
-        political: '',
-        telephone: '',
+        gender: '',
+        graduateSchool: '',
+        birthDate: '',
+        identityNum: '',
+        politicalAppearence: '',
+        phoneNum: '',
         department: '',
-        classAndGrade: '',
+        class: '',
         status: '',
       },
       formLabelWidth: '80px',
@@ -368,6 +397,7 @@ export default {
   },
   methods: {
     submitUpload() {
+      console.log('submit');
       this.$refs.upload.submit();
     },
     changeMe(file, fileList) {
@@ -390,12 +420,12 @@ export default {
 
     getDptName() {
       this.$axios
-        .post('/dpt/getDptName', {})
+        .get('/dpt/getDptName', {})
         .then((result) => {
           if (result.data.code === 1) {
-            //返回第一页数据，和
+            console.log(result);
             this.deptOptions = result.data.datas;
-            this.deptSelected = result.data.datas[0].id;
+            this.deptSelected = result.data.datas[0].departmentNo;
           } else {
             return false;
           }
@@ -422,7 +452,7 @@ export default {
         return;
       }
       this.$axios
-        .post('/stuAdmin/getStuData', {
+        .get('/stuAdmin/getStuData', {
           dpt: this.deptSelected,
           grade: this.gradeSelected,
         })
@@ -458,16 +488,16 @@ export default {
     },
 
     addStuBtn() {
-      this.form.id = '';
+      this.form.studentNo = '';
       this.form.name = '';
-      this.form.sex = '';
-      this.form.graduate = '';
-      this.form.birth = '';
-      this.form.idCard = '';
-      this.form.political = '';
-      this.form.telephone = '';
+      this.form.gender = '';
+      this.form.graduateSchool = '';
+      this.form.birthDate = '';
+      this.form.identityNum = '';
+      this.form.politicalAppearence = '';
+      this.form.phoneNum = '';
       this.form.department = '';
-      this.form.classAndGrade = '';
+      this.form.class = '';
       this.form.status = '';
       this.dialogFormVisible = true;
       this.visible2 = 'none';
@@ -479,13 +509,13 @@ export default {
       this.$axios
         .post('/stuAdmin/insertStudent', this.form)
         .then((result) => {
+          console.log(result);
           if (result.data.code === 1) {
             //返回第一页数据，和
             this.$message({
               type: 'success',
               message: '修改成功!',
             });
-            this.getTableData();
           } else {
             this.$message({
               type: 'error',
@@ -584,7 +614,7 @@ export default {
     },
   },
   created() {
-    this.getAllClass();
+    // this.getAllClass();
     this.gradeSelected = this.gradeOptions[2].grade;
     this.getDptName();
   },
