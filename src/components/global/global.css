@@ -38,7 +38,7 @@ body .el-table th.gutter{
     transform: translate(-50%,-50%);
 }
 .el-header{
-    background-color:  #547387;
+    background-color:  #A0A0A0;
 }
 .el-footer {
     position: absolute;
@@ -48,7 +48,7 @@ body .el-table th.gutter{
     text-align: center;
     line-height: 20px;
     font-size: 10px;
-    background-color:  #547387;
+    background-color:  #A0A0A0;
     color: #a1c4db;
 }
 /* .el-main{

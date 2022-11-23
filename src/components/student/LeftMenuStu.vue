@@ -1,14 +1,14 @@
 <template>
-  <div style="margin:20px;overflow-x:hidden">
-  <el-menu
+  <div style="margin: 20px; overflow-x: hidden">
+    <el-menu
       ref="elmenu"
       :default-active="this.$route.path.substring(1)"
       unique-opened
-      background-color="#547387"
+      background-color="#A0A0A0"
       text-color="#fff"
       active-text-color="#a1c4db"
-      router="true">
-      
+      router="true"
+    >
       <el-submenu v-for="item in menu" :index="item.id" :key="item.id">
         <template slot="title">
           <span v-text="item.name"></span>
@@ -18,18 +18,17 @@
           </el-menu-item>
         </el-menu-item-group>
       </el-submenu>
-
     </el-menu>
   </div>
 </template>
 
 <script>
-import stuMenu from '../global/stuMenu.config.js'
-  export default {
-    data(){
-        return{
-            menu:stuMenu
-        }
-    }
-  }
+import stuMenu from '../global/stuMenu.config.js';
+export default {
+  data() {
+    return {
+      menu: stuMenu,
+    };
+  },
+};
 </script>
