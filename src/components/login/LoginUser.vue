@@ -27,8 +27,8 @@
         <el-col :span="12">
           <img
             id="code_img"
-            src="http://localhost:3000/auth/login/yzm"
-            @click="changeCode()"
+            :src="captchaUrl"
+            @click="getCaptcha()"
             style="
               height: 40px;
               width: 100px;
@@ -115,14 +115,20 @@ export default {
         user: [{ validator: validateUser, trigger: 'blur' }],
         pass: [{ validator: validatePass, trigger: 'blur' }],
       },
+      captchaUrl: 'http://localhost:3000/auth/login/yzm',
     };
   },
 
   methods: {
+    getCaptcha() {
+      let defaultUrl = 'http://localhost:3000/auth/login/yzm';
+      // 每次指定的src要不一样，img才会重新请求，可以使用Date.now()小技巧
+      this.captchaUrl = `${defaultUrl}?timer=${new Date().getTime()}`;
+    },
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          //提交表单
+          // 提交表单
           this.$axios
             .post('auth/login/user', {
               name: this.loginForm.user,
@@ -148,6 +154,7 @@ export default {
                 // 跳转到teacher组件中
                 this.$router.replace({ path: '/Tea1_1' });
               } else {
+                this.getCaptcha();
                 alert(result.data.msg);
                 return false;
               }
@@ -160,12 +167,6 @@ export default {
           return false;
         }
       });
-    },
-    changeCode() {
-      setTimeout(() => {
-        document.getElementById('code_img').src =
-          'http://localhost:8080/auth/login/yzm';
-      }, 1000);
     },
     toForgot() {
       this.$router.push({

@@ -18,6 +18,11 @@
   </div>
 </template>
 
+<style scoped>
+#app {
+  height: 790px;
+}
+</style>
 <script>
 import header from './components/common/Header.vue';
 import footer from './components/common/Footer.vue';
@@ -33,8 +38,12 @@ export default {
 };
 </script>
 
+<<<<<<< HEAD
 <style scoped>
 #app {
   height: 790px;
 }
 </style>
+=======
+<style></style>
+>>>>>>> main

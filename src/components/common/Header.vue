@@ -52,8 +52,9 @@ export default {
           this.$axios
             .post('/auth/login/logout', {})
             .then((result) => {
-              if (result.data.code == 302) {
-                let r = this.$route.path.substr(0, 4);
+              if (result.data.code === 200) {
+                delCookie('token');
+                const r = this.$route.path.substr(0, 4);
                 if (r == '/Stu' || r == '/Tea') {
                   this.$router.replace({ path: '/login' });
                 } else {

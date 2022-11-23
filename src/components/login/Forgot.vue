@@ -11,7 +11,7 @@
         <el-input v-model="userForm.tel"> </el-input>
       </el-form-item>
 
-      <el-form-item>
+      <!-- <el-form-item>
         <el-col :span="10">
           <el-input
             v-model="userForm.vcode"
@@ -30,7 +30,7 @@
             >{{ codeBtnWord }}</el-button
           >
         </el-col>
-      </el-form-item>
+      </el-form-item> -->
 
       <el-form-item label="新密码" prop="pass">
         <el-input
@@ -101,41 +101,41 @@
 </style>
 
 <script>
-import md5 from 'js-md5';
+// import md5 from 'js-md5';
 // 引入密码强度进度条插件
 // 怎么能简写文件路径，同级并列文件
 import password_strength from './password_strength.vue';
 export default {
   data() {
-    var validateUser = (rule, value, callback) => {
+    let validateUser = (rule, value, callback) => {
       if (value === '') {
         callback(new Error('用户名不能为空'));
       } else {
         callback();
       }
     };
-    var validateTel = (rule, value, callback) => {
+    let validateTel = (rule, value, callback) => {
       if (value === '') {
         callback(new Error('手机号不能为空'));
       } else {
         callback();
       }
     };
-    var validateVcode = (rule, value, callback) => {
+    let validateVcode = (rule, value, callback) => {
       if (value === '') {
         callback(new Error('验证码不能为空'));
       } else {
         callback();
       }
     };
-    var validatePass = (rule, value, callback) => {
+    let validatePass = (rule, value, callback) => {
       if (value === '') {
         callback(new Error('密码不能为空'));
       } else {
         callback();
       }
     };
-    var validatePass2 = (rule, value, callback) => {
+    let validatePass2 = (rule, value, callback) => {
       if (value === '') {
         callback(new Error('请再次输入密码'));
       } else if (value !== this.userForm.pass) {
@@ -200,15 +200,14 @@ export default {
       immediate: true,
     },
   },
-
   methods: {
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          this.userForm.pass = md5(this.userForm.pass);
-          this.userForm.checkPass = md5(this.userForm.checkPass);
+          this.userForm.pass = this.userForm.pass;
+          this.userForm.checkPass = this.userForm.checkPass;
           this.$axios
-            .post('/pwd/resetPwd', this.userForm)
+            .post('/auth/login/forgot', this.userForm)
             .then((result) => {
               if (result.data.code === 1) {
                 this.$message({
@@ -217,6 +216,7 @@ export default {
                 });
                 this.$router.back(-1);
               } else {
+                console.log(result);
                 this.$message({
                   type: 'error',
                   message: result.data.msg,
@@ -260,11 +260,11 @@ export default {
         });
       let that = this;
       that.waitTime--;
-      this.codeBtnWord = `${that.waitTime} 秒后重新获取`;
+      this.codeBtnWord = `${that.waitTime}s 后重新获取`;
       let timer = setInterval(function () {
         if (that.waitTime > 1) {
           that.waitTime--;
-          that.codeBtnWord = `${that.waitTime} 秒后重新获取`;
+          that.codeBtnWord = `${that.waitTime}s 后重新获取`;
         } else {
           clearInterval(timer);
           that.codeBtnWord = '获取验证码';
