@@ -27,5 +27,8 @@ module.exports = [{
     }, {
         name: '换绑手机号',
         componentName: 'Adm3_2'
+    }, {
+        name: '换绑邮箱',
+        componentName: 'Adm3_3'
     }]
 }]

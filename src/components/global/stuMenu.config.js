@@ -29,10 +29,32 @@ module.exports = [{
       name: '个人信息',
       componentName: 'Stu4_1'
     }, {
+      name: '社会实践',
+      componentName: 'SocialPractice'
+    }, {
+      name: '课外活动',
+      componentName: 'ExtracurricularActivities'
+    }, {
+      name: '成果奖励',
+      componentName: 'AchievementAndAward'
+    }, {
       name: '修改密码',
       componentName: 'Stu4_2'
     }, {
         name: '换绑手机号',
         componentName: 'Stu4_3'
+      }, {
+        name: '换绑邮箱',
+        componentName:'Stu4_4'
       }]
+  },{
+    name: '学生互评',
+    id: '5',
+    sub: [{
+      name: '我评价的',
+      componentName: 'PeerAssessment1'
+    }, {
+        name: '评价我的',
+        componentName: 'PeerAssessment2'
+    }]
   }]

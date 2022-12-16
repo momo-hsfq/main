@@ -1514,6 +1514,15 @@ const getPKTableData = function(){
         }]
     }  
 }
+/*const getPeerAssessment = function(){
+    return{
+        code:1,
+        datas:{
+            tag:'电竞狂人',
+            assessment:'友善，人好'
+        }
+    }
+}*/
 Mock.mock('/api/getAdminTableData','post',getAdminTableData)
 Mock.mock('/api/getPKTableData','post',getPKTableData)
 Mock.mock('/api/getTeaTableData','post',getTeaTableData)
@@ -1532,3 +1541,4 @@ Mock.mock('/api/getClassOptions','post',getClassOptions);
 Mock.mock('/api/getCrsOptions','post',getCrsOptions);
 Mock.mock('/api/getClassListTableData','post',getClassListTableData);
 Mock.mock('/api/getTaskTable','post',getTaskTable);
+//Mock.mock('/api/getPeerAssessment','post',getPeerAssessment);
