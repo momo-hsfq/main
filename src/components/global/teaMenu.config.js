@@ -34,5 +34,8 @@ module.exports = [{
     }, {
         name: '换绑手机号',
         componentName: 'Tea4_3'
+      }, {
+        name: '换绑邮箱',
+        componentName:'Tea4_4'
       }]
   }]

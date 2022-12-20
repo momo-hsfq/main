@@ -14,6 +14,15 @@ import Stu3 from '@/components/student/Stu3'
 import Stu4_1 from '@/components/student/Stu4_1'
 import Stu4_2 from '@/components/student/Stu4_2'
 import Stu4_3 from '@/components/student/Stu4_3'
+import Stu4_4 from '@/components/student/Stu4_4'
+import PeerAssessment1 from '@/components/student/PeerAssessment1'
+import PeerAssessment2 from '@/components/student/PeerAssessment2'
+import SocialPractice from'@/components/student/SocialPractice'
+import ExtracurricularActivities from'@/components/student/ExtracurricularActivities'
+import AchievementAndAward from'@/components/student/AchievementAndAward'
+import VerifySlide from'@/components/verifition/Verify/VerifySlide'
+import VerifyPoints from'@/components/verifition/Verify/VerifyPoints'
+
 
 import Tea4_3 from '@/components/teacher/Tea4_3'
 import Tea4_2 from '@/components/teacher/Tea4_2'
@@ -64,6 +73,25 @@ export default new Router({
       name: 'forgot',
       component: Forgot
     },
+
+
+    {
+      path: '/VerifySlide',
+      component: VerifySlide,
+      meta:{
+        keepalive:false
+      }
+    },
+    {
+      path: '/VerifyPoints',
+      component: VerifyPoints,
+      meta:{
+        keepalive:false
+      }
+    },
+
+
+
     {
       path: '/Student',
       component: Student,
@@ -127,6 +155,48 @@ export default new Router({
           path: '/Stu4_3',
           component: Stu4_3,
           meta: {
+            requireAuth: true
+          }
+        },
+        {
+          path:'/Stu4_4',
+          component:Stu4_4,
+          meta:{
+            requireAuth: true
+          }
+        },
+        {
+          path:'/PeerAssessment1',
+          component:PeerAssessment1,
+          meta:{
+            requireAuth: true
+          }
+        },
+        {
+          path:'/PeerAssessment2',
+          component:PeerAssessment2,
+          meta:{
+            requireAuth: true
+          }
+        },
+        {
+          path:'/SocialPractice',
+          component:SocialPractice,
+          meta:{
+            requireAuth: true
+          }
+        },
+        {
+          path:'/ExtracurricularActivities',
+          component:ExtracurricularActivities,
+          meta:{
+            requireAuth: true
+          }
+        },
+        {
+          path:'/AchievementAndAward',
+          component:AchievementAndAward,
+          meta:{
             requireAuth: true
           }
         },
