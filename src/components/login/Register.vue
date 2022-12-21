@@ -72,7 +72,7 @@
 </template>
 
 <style scoped>
-/* .register_span {
+.register_span {
   font-family: Microsoft YaHei;
   color: rgb(69, 137, 148);
   font-size: 22px;
@@ -80,7 +80,7 @@
 }
 .registersure_span {
   margin: 10px 0 20px 0;
-} */
+}
 
 .register_div {
   border: 1px;
