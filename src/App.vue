@@ -1,10 +1,16 @@
 <template>
   <div id="app">
-    <el-container>
+    <el-container class="">
       <el-header class="shadow_out">
         <v-header></v-header>
       </el-header>
       <router-view></router-view>
+      <!-- <el-main>
+        <v-loginUser></v-loginUser>
+      </el-main> -->
+      <el-footer>
+        <v-footer></v-footer>
+      </el-footer>
     </el-container>
   </div>
 </template>
