@@ -1,19 +1,16 @@
 <template>
   <div id="app">
-    <!-- <el-container">
-    <el-header height="60px">
-      <v-header></v-header>
-    </el-header>
-    <el-main style="position:absolute;padding:0;margin:0;margin-top:60px;height:100%;width:100%">
-      <router-view>   
-      </router-view>
-    </el-main>
-  </el-container"> -->
-    <el-container>
+    <el-container class="">
       <el-header class="shadow_out">
         <v-header></v-header>
       </el-header>
       <router-view></router-view>
+      <!-- <el-main>
+        <v-loginUser></v-loginUser>
+      </el-main> -->
+      <el-footer>
+        <v-footer></v-footer>
+      </el-footer>
     </el-container>
   </div>
 </template>
@@ -38,12 +35,8 @@ export default {
 };
 </script>
 
-<<<<<<< HEAD
 <style scoped>
 #app {
   height: 790px;
 }
 </style>
-=======
-<style></style>
->>>>>>> main
