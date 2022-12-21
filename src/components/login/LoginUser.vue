@@ -54,10 +54,10 @@
     <div class="setting-wrapper">
       <el-link
         type="primary"
-        style="cursor: pointer"
+        style="cursor: pointer;"
         @click="toForgot"
-        class="fogotCow"
-        >忘记密码?</el-link
+        class="forgotCow"
+        >忘记密码</el-link
       >
       <el-link
         type="primary"
@@ -72,16 +72,19 @@
 
 <!-- 页面 -->
 <style scoped>
-/* .setting-wrapper {
+.login_div {
+  height: 400px;
+}
+.setting-wrapper {
   display: flex;
   flex-direction: row;
 }
 .forgotCow {
-  margin: 0 150px 0 10px;
+  margin: 0 0 0 10px;
 }
 .registerCow {
-  margin: 0 10px 0 120px;
-} */
+  margin: 0 10px 0 100px;
+}
 </style>
 
 <script>

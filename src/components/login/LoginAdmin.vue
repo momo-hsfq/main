@@ -51,7 +51,7 @@
       </el-form-item>
 
       <el-link type="primary" style="cursor: pointer" @click="toForgot"
-        >忘记密码?</el-link
+        >忘记密码</el-link
       >
     </el-form>
   </div>
