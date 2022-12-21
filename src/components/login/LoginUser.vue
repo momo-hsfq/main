@@ -72,6 +72,9 @@
 
 <!-- 页面 -->
 <style scoped>
+.login_div {
+  height: 400px;
+}
 .setting-wrapper {
   display: flex;
   flex-direction: row;
