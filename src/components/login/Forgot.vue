@@ -190,11 +190,11 @@ export default {
   },
   watch: {
     $route: {
-      handler: function (route) {
+      handler: function(route) {
         const query = route.query;
         if (query) {
           this.redirect = query.redirect;
-          this.otherQuery = this.getOtherQuery(query);
+          // this.otherQuery = this.getOtherQuery(query);
         }
       },
       immediate: true,
@@ -261,7 +261,7 @@ export default {
       let that = this;
       that.waitTime--;
       this.codeBtnWord = `${that.waitTime}s 后重新获取`;
-      let timer = setInterval(function () {
+      let timer = setInterval(function() {
         if (that.waitTime > 1) {
           that.waitTime--;
           that.codeBtnWord = `${that.waitTime}s 后重新获取`;

@@ -57,7 +57,7 @@
       <el-button
         type="primary"
         @click="submitForm('userForm')"
-        style="width: 140px"
+        style="width: 140px; margin-bottom: 20px"
         class="registersure_span"
         >确认注册</el-button
       >
@@ -72,7 +72,7 @@
 </template>
 
 <style scoped>
-.register_span {
+/* .register_span {
   font-family: Microsoft YaHei;
   color: rgb(69, 137, 148);
   font-size: 22px;
@@ -80,6 +80,17 @@
 }
 .registersure_span {
   margin: 10px 0 20px 0;
+} */
+
+.register_div {
+  border: 1px;
+  border-radius: 5%;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04);
+  height: 520px;
+  width: 350px;
+  padding: 20px;
+  text-align: center;
 }
 </style>
 
@@ -237,7 +248,7 @@ export default {
       let that = this;
       that.waitTime--;
       this.codeBtnWord = `${that.waitTime} 秒后重新获取`;
-      let timer = setInterval(function () {
+      let timer = setInterval(function() {
         if (that.waitTime > 1) {
           that.waitTime--;
           that.codeBtnWord = `${that.waitTime} 秒后重新获取`;
@@ -251,15 +262,3 @@ export default {
   },
 };
 </script>
-
-<style>
-.register_div {
-  border: 1px;
-  border-radius: 2px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04);
-  height: 520px;
-  width: 350px;
-  padding: 20px;
-  text-align: center;
-}
-</style>

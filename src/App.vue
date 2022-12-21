@@ -1,14 +1,5 @@
 <template>
   <div id="app">
-    <!-- <el-container">
-    <el-header height="60px">
-      <v-header></v-header>
-    </el-header>
-    <el-main style="position:absolute;padding:0;margin:0;margin-top:60px;height:100%;width:100%">
-      <router-view>   
-      </router-view>
-    </el-main>
-  </el-container"> -->
     <el-container>
       <el-header class="shadow_out">
         <v-header></v-header>
@@ -38,12 +29,8 @@ export default {
 };
 </script>
 
-<<<<<<< HEAD
 <style scoped>
 #app {
   height: 790px;
 }
 </style>
-=======
-<style></style>
->>>>>>> main
