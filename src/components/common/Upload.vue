@@ -34,6 +34,9 @@
     height: 178px;
     display: block;
   }
+  .el-icon-plus{
+    margin-top: 100px;
+  }
 </style>
 
 <script>

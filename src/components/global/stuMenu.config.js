@@ -74,6 +74,10 @@ module.exports = [{
         name: '换绑手机号',
         id:'6-2',
         componentName: 'Stu4_3'
+      },{
+        name:'邮箱发送验证码',
+        id:'6-3',
+        componentName:'Stu4_5'
       }]
       
   }]

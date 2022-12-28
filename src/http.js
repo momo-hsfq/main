@@ -14,6 +14,7 @@ axios.interceptors.request.use(
       'Content-Type': 'application/json;charset=UTF-8'
     }
     let token = getCookie("token")
+    console.log(token)
     if (token) {
       config.headers.token = token
     }
